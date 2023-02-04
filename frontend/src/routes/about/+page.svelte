@@ -1,26 +1,22 @@
 <svelte:head>
-	<title>About</title>
-	<meta name="description" content="About this app" />
+    <title>Photography School - About</title>
+    <meta name="description" content="About this school" />
 </svelte:head>
 
-<div class="text-column">
-	<h1>About this app</h1>
+<div class="content">
+    <h1 class="text-5xl font-bold mb-10 text-center">About Photo School</h1>
 
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
+    <p class="mb-8">
+        Learn the basics of Photography, or improve your knowledge working in our awesome studio.
+    </p>
 
-	<pre>npm create svelte@latest</pre>
+    <h2 class="text-2xl font-bold mb-10 text-center">Learn with us about</h2>
 
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
-	</p>
+    <ul class="list-disc">
+        <li>Introduction to Photography</li>
+        <li>Street Photography</li>
+        <li>Landscape photography</li>
+        <li>Portrait</li>
+        <li>Studio and lighting</li>
+    </ul>
 </div>
