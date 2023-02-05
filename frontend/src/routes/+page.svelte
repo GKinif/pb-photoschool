@@ -1,6 +1,9 @@
 <script>
 	import {listUsers} from "../services/users";
+	import {collectionStore} from "../stores/collection.ts";
+
 	let usersPromise = listUsers();
+	const usersrt = collectionStore('users')
 </script>
 
 <svelte:head>
@@ -27,4 +30,10 @@
 	{:catch error}
 		<p style="color: red">{error.message}</p>
 	{/await}
+
+	<h2 class="text-3xl font-bold mb-8 text-center">Realtime</h2>
+
+	<pre>
+		{JSON.stringify($usersrt)}
+	</pre>
 </section>
