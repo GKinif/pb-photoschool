@@ -18,7 +18,7 @@ export function userStore() {
     let unsubscribe: () => void;
 
     const { subscribe } = writable<User | Record | Admin | null>(pbClient.authStore.model ?? null, (set) => {
-        unsubscribe = pbClient.authStore.onChange((token: string, model: any) => {
+        unsubscribe = pbClient.authStore.onChange((token: string, model: Record | Admin | null) => {
             set(model);
         });
 

@@ -1,6 +1,6 @@
 <script>
 	import {listUsers} from "../services/users";
-	import {collectionStore} from "../stores/collection.ts";
+	import {collectionStore} from "../stores/collection";
 
 	let usersPromise = listUsers();
 	const usersrt = collectionStore('users')
