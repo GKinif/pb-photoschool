@@ -39,6 +39,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"immer": "^9.0.19",
 		"pocketbase": "^0.10.1"
 	}
 }

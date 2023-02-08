@@ -2,8 +2,18 @@
 	import {listUsers} from "../services/users";
 	import {collectionStore} from "../stores/collection";
 
-	let usersPromise = listUsers();
-	const usersrt = collectionStore('users')
+	let userList = [];
+
+	const fetchUsers = async () => {
+		userList = await listUsers();
+	};
+
+	// let usersPromise = listUsers();
+	$: usersrt = collectionStore('users', 100, userList);
+
+	$: console.log('usersrt: ', $usersrt);
+
+	const promise = fetchUsers();
 </script>
 
 <svelte:head>
@@ -18,7 +28,7 @@
 
 	<h2 class="text-3xl font-bold mb-8 text-center">Classes</h2>
 
-	{#await usersPromise}
+	<!--{#await usersPromise}
 		<p>...waiting</p>
 	{:then users}
 		{#each users as user (user.id)}
@@ -29,11 +39,21 @@
 		{/each}
 	{:catch error}
 		<p style="color: red">{error.message}</p>
-	{/await}
+	{/await}-->
 
 	<h2 class="text-3xl font-bold mb-8 text-center">Realtime</h2>
 
-	<pre>
-		{JSON.stringify($usersrt)}
-	</pre>
+	{#await promise}
+		<p>...waiting</p>
+	{:then users}
+		<pre>
+			{#each $usersrt as user (user.id)}
+				<div class="mb-10">
+					<h2 class="text-2xl font-bold mb-4 text-center">{user.username}</h2>
+				</div>
+			{/each}
+		</pre>
+	{:catch error}
+		<p style="color: red">{error.message}</p>
+	{/await}
 </section>
