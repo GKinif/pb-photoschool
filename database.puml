@@ -1,0 +1,74 @@
+@startuml
+
+object profiles {
+    id: uuid
+    role: roles_id
+}
+roles ||--|{ profiles
+
+object roles {
+    id: uuid
+    name: String
+}
+
+object albums {
+    id: uuid
+    title: String
+    createdBy: profiles_id
+    lesson?: lessons_id
+}
+profiles ||--|{ albums
+lessons ||--|{ albums
+
+object tags {
+    id: uuid
+    name: string
+}
+
+object photos {
+    id: uuid
+    label?: String
+    album: albums_id
+    tags: tags_id[]
+    promoted: boolean
+    file: string
+    createdBy: profiles_id
+}
+albums ||--|{ photos
+tags ||--|{ photos
+profiles ||--|{ photos
+
+object levels {
+    id: uuid
+    title: String
+}
+
+object classes {
+    id: uuid
+    title: String
+    level: levels_id
+    startDate: string
+    endDate: string
+}
+levels ||--|{ classes
+
+object subjects {
+    id: uuid
+    title: String
+    description?: string
+    level: levels_id
+}
+levels ||--|{ subjects
+
+object lessons {
+    id: uuid
+    title?: string
+    subject: subjects_id
+    class: classes_id
+    date: string
+}
+classes ||--|{ lessons
+subjects ||--|{ lessons
+
+@enduml
+
