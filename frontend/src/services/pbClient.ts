@@ -1,7 +1,8 @@
 import PocketBase from 'pocketbase';
 import { browser } from '$app/environment';
+import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 
-export const pbClient = new PocketBase('http://127.0.0.1:8090');
+export const pbClient = new PocketBase(PUBLIC_PB_BASE_URL);
 
 const refreshToken = async () => {
 	try {

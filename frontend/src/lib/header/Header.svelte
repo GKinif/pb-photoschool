@@ -27,7 +27,7 @@
 			<button
 				type="button"
 				on:click={handleClick}
-				class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+				class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-primary-700"
 			>
 				<span class="sr-only">Open main menu</span>
 				<svg
@@ -49,40 +49,45 @@
 		<div class="hidden lg:flex lg:gap-x-12">
 			<a
 				href="/users"
-				class="text-sm font-semibold leading-6 text-gray-900"
+				class="text-sm font-semibold leading-6 text-primary-700"
 				class:active={$page.url.pathname === '/users'}>Users</a
 			>
 			<a
+				href="/classes"
+				class="text-sm font-semibold leading-6 text-primary-700"
+				class:active={$page.url.pathname === '/classes'}>Classes</a
+			>
+			<a
 				href="/levels"
-				class="text-sm font-semibold leading-6 text-gray-900"
+				class="text-sm font-semibold leading-6 text-primary-700"
 				class:active={$page.url.pathname === '/levels'}>Levels</a
 			>
 			<a
 				href="/about"
-				class="text-sm font-semibold leading-6 text-gray-900"
+				class="text-sm font-semibold leading-6 text-primary-700"
 				class:active={$page.url.pathname === '/about'}>About</a
 			>
 		</div>
 		<div class="hidden lg:flex lg:flex-1 lg:justify-end">
 			{#if $user}
-				<span class="text-sm font-semibold leading-6 text-gray-900 mr-4"
+				<span class="text-sm font-semibold leading-6 text-primary-700 mr-4"
 					>Hello {$user.username}</span
 				>
 				<button
 					href="#"
-					class="text-sm font-semibold leading-6 text-gray-900"
+					class="text-sm font-semibold leading-6 text-primary-700"
 					on:click={() => logoutUser()}>Log out</button
 				>
 			{:else}
 				<a
 					href="/login"
 					class:active={$page.url.pathname === '/login'}
-					class="text-sm font-semibold leading-6 text-gray-900 mr-4">Log in</a
+					class="text-sm font-semibold leading-6 text-primary-700 mr-4">Log in</a
 				>
 				<a
 					href="/register"
 					class:active={$page.url.pathname === '/register'}
-					class="text-sm font-semibold leading-6 text-gray-900">Register</a
+					class="text-sm font-semibold leading-6 text-primary-700">Register</a
 				>
 			{/if}
 		</div>
@@ -105,7 +110,11 @@
 						alt=""
 					/>
 				</a>
-				<button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" on:click={handleClick}>
+				<button
+					type="button"
+					class="-m-2.5 rounded-md p-2.5 text-primary700"
+					on:click={handleClick}
+				>
 					<span class="sr-only">Close menu</span>
 					<svg
 						class="h-6 w-6"
@@ -124,24 +133,29 @@
 					<div class="space-y-2 py-6">
 						<a
 							href="/users"
-							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
 							>Users</a
 						>
 						<a
+							href="/classes"
+							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
+							>Classes</a
+						>
+						<a
 							href="/levels"
-							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
 							>Levels</a
 						>
 						<a
 							href="/about"
-							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
 							class:active={$page.url.pathname === '/about'}>About</a
 						>
 					</div>
 					<div class="py-6">
 						<a
 							href="#"
-							class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+							class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
 							>Log in</a
 						>
 					</div>

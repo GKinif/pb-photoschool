@@ -10,9 +10,7 @@
 </svelte:head>
 
 <section>
-	<h1 class="hidden">Levels</h1>
-
-	<h2 class="text-3xl font-bold mb-8 text-center">Levels</h2>
+	<h1 class="text-3xl font-bold mb-8 text-center text-primary-700">Levels</h1>
 
 	{#await levelsPromise}
 		<p>...waiting</p>
