@@ -9,6 +9,6 @@
 	<slot />
 </main>
 
-<footer class="container mx-auto">
-	<p class="text-center">Test portfolio with PocketBase and SvelteKit</p>
+<footer class="container mx-auto py-8">
+	<p class="text-center text-lg font-semibold text-primary-700">Test portfolio with PocketBase and SvelteKit</p>
 </footer>
