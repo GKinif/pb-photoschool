@@ -16,11 +16,7 @@
 		<div class="flex lg:flex-1">
 			<a href="/" class="-m-1.5 p-1.5">
 				<span class="sr-only">Photo School</span>
-				<img
-						class="h-8 w-8 fill-slate-300"
-						src="/images/ps_logo.svg"
-						alt=""
-				/>
+				<img class="h-8 w-8 fill-slate-300" src="/images/ps_logo.svg" alt="" />
 			</a>
 		</div>
 		<div class="flex lg:hidden">
