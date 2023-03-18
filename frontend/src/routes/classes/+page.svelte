@@ -9,8 +9,11 @@
 		day: 'numeric'
 	};
 
+	const currentDate = new Date();
+
 	let classesPromise = listRecords('classes', 1, 100, {
-		expand: 'members,level'
+		expand: 'members,level',
+		filter: `startDate <= "${currentDate.toISOString()}" && endDate >= "${currentDate.toISOString()}"`,
 	});
 </script>
 
@@ -29,6 +32,7 @@
 			<ul class="divide-y divide-gray-200">
 				{#each classes as clas (clas.id)}
 					<li>
+						<div>
 						<a href={`/classes/${clas.id}`} class="block hover:bg-gray-50">
 							<div class="flex items-center px-4 py-4 sm:px-6">
 								<div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
@@ -36,7 +40,7 @@
 										<div class="flex text-sm">
 											<p class="truncate font-medium text-primary-700">{clas.title}</p>
 											<p
-												class="ml-1 flex-shrink-0 font-small text-primary-100 bg-secondary-500 px-2 rounded"
+												class="ml-1 flex-shrink-0 font-small text-primary-100 bg-primary-700 px-2 rounded"
 											>
 												{clas.expand?.level?.title}
 											</p>
@@ -110,6 +114,21 @@
 								</div>
 							</div>
 						</a>
+						</div>
+						<div class="px-4 py-4 sm:px-6 flex gap-1">
+							<img
+									src="https://placekitten.com/800/300"
+									class="h-16 w-16 rounded object-cover"
+							/>
+							<img
+									src="https://placekitten.com/800/300"
+									class="h-16 w-16 rounded object-cover"
+							/>
+							<img
+									src="https://placekitten.com/800/300"
+									class="h-16 w-16 rounded object-cover"
+							/>
+						</div>
 					</li>
 				{/each}
 			</ul>

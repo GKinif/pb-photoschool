@@ -44,11 +44,6 @@
 		</div>
 		<div class="hidden lg:flex lg:gap-x-12">
 			<a
-				href="/users"
-				class="text-sm font-semibold leading-6 text-primary-700"
-				class:active={$page.url.pathname === '/users'}>Users</a
-			>
-			<a
 				href="/classes"
 				class="text-sm font-semibold leading-6 text-primary-700"
 				class:active={$page.url.pathname === '/classes'}>Classes</a
@@ -127,11 +122,6 @@
 			<div class="mt-6 flow-root">
 				<div class="-my-6 divide-y divide-gray-500/10">
 					<div class="space-y-2 py-6">
-						<a
-							href="/users"
-							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
-							>Users</a
-						>
 						<a
 							href="/classes"
 							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"

@@ -20,10 +20,10 @@
 			class="absolute inset-0 -z-10 h-full w-full object-cover"
 		/>
 		<div class="mx-auto max-w-2xl text-center">
-			<h1 class="text-4xl font-bold tracking-tight text-primary-100 sm:text-6xl">
+			<h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
 				Photography School
 			</h1>
-			<p class="mt-6 text-lg leading-8 text-primary-300">
+			<p class="mt-6 text-lg leading-8 text-white">
 				Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
 				Elit sunt amet fugiat veniam occaecat fugiat aliqua.
 			</p>
@@ -32,7 +32,7 @@
 
 	<div class="mb-16">
 		<h2 class="text-3xl font-bold mb-8 text-center text-primary-700">What We Teach</h2>
-		<p class="text-center">
+		<p class="text-center px-4 lg:px-24">
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
 			been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
 			galley of type and scrambled it to make a type specimen book. It has survived not only five
@@ -82,33 +82,35 @@
 	<ul class="divide-y divide-gray-200">
 		{#await levelsPromise}
 			<li class="flex py-8 px-12 animate-pulse">
-				<div class="w-96 h-60 bg-slate-200 rounded" />
+				<div class="w-96 h-60 bg-slate-200 rounded"></div>
 				<div class="py-4 px-8 flex-1 space-y-6">
-					<div class="h-4 bg-slate-200 rounded" />
+					<div class="h-4 bg-slate-200 rounded"></div>
 					<div class="space-y-3">
 						<div class="grid grid-cols-3 gap-4">
-							<div class="h-4 bg-slate-200 rounded col-span-2" />
-							<div class="h-4 bg-slate-200 rounded col-span-1" />
+							<div class="h-4 bg-slate-200 rounded col-span-2"></div>
+							<div class="h-4 bg-slate-200 rounded col-span-1"></div>
 						</div>
-						<div class="h-4 bg-slate-200 rounded" />
+						<div class="h-4 bg-slate-200 rounded"></div>
 						<div class="grid grid-cols-3 gap-4">
-							<div class="h-4 bg-slate-200 rounded col-span-2" />
-							<div class="h-4 bg-slate-200 rounded col-span-1" />
+							<div class="h-4 bg-slate-200 rounded col-span-2"></div>
+							<div class="h-4 bg-slate-200 rounded col-span-1"></div>
 						</div>
-						<div class="h-4 bg-slate-200 rounded" />
+						<div class="h-4 bg-slate-200 rounded"></div>
 					</div>
 				</div>
 			</li>
 		{:then levels}
 			{#each levels as level, index (level.id)}
-				<li class={`flex py-8 px-12 ${index % 2 == 0 ? '' : 'flex-row-reverse'}`}>
-					<img
-						class="max-h-96 rounded"
-						src={`${PUBLIC_PB_BASE_URL}/api/files/levels/${level.id}/${level.cover}`}
-						title={level.title}
-						alt={level.title}
-					/>
-					<div class="py-4 px-8 flex-1">
+				<li class={`flex py-8 px-4 md:px-12 flex-col ${index % 2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+					<div class="flex-1">
+						<img
+							class="rounded max-h-96"
+							src={`${PUBLIC_PB_BASE_URL}/api/files/levels/${level.id}/${level.cover}`}
+							title={level.title}
+							alt={level.title}
+						/>
+					</div>
+					<div class="py-4 md:px-8 flex-1">
 						<h3 class="text-xl font-semibold leading-6 text-primary-700 mb-4">{level.title}</h3>
 						<p class="prose">{@html level.description}</p>
 					</div>
