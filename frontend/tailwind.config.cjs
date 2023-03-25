@@ -4,29 +4,29 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				secondary: {
-					50: '#f0fafb',
-					100: '#d9f2f4',
-					200: '#b7e4ea',
-					300: '#85d0db',
-					400: '#4cb2c4',
-					500: '#3196a9',
-					600: '#2b798f',
-					700: '#296475',
-					800: '#295361',
-					900: '#264653'
-				},
 				primary: {
-					50: '#f6f6f9',
-					100: '#ecedf2',
-					200: '#d4d6e3',
-					300: '#afb2ca',
-					400: '#8389ad',
-					500: '#636a94',
-					600: '#4f537a',
-					700: '#414463',
-					800: '#3d405b',
-					900: '#323448'
+					50: '#D8D7D4',
+					100: '#CFCDC9',
+					200: '#BBB8B4',
+					300: '#A8A49F',
+					400: '#949089',
+					500: '#817C74',
+					600: '#6B6761',
+					700: '#4E4B46',
+					800: '#302E2C',
+					900: '#131211'
+				},
+				secondary: {
+					50: '#FFF2DB',
+					100: '#FFE9C2',
+					200: '#FFD78F',
+					300: '#FFC55C',
+					400: '#FFB329',
+					500: '#F59E00',
+					600: '#C27D00',
+					700: '#8A5900',
+					800: '#523500',
+					900: '#1A1000'
 				},
 				text: {
 					50: '#f7f7f6',
@@ -76,7 +76,46 @@ module.exports = {
 					800: '#833e1d',
 					900: '#6c331b'
 				}
-			}
+			},
+			typography: ({ theme }) => ({
+				primary: {
+					css: {
+						'--tw-prose-body': theme('colors.primary[800]'),
+						'--tw-prose-headings': theme('colors.primary[900]'),
+						'--tw-prose-lead': theme('colors.primary[700]'),
+						'--tw-prose-links': theme('colors.primary[900]'),
+						'--tw-prose-bold': theme('colors.primary[900]'),
+						'--tw-prose-counters': theme('colors.primary[600]'),
+						'--tw-prose-bullets': theme('colors.primary[400]'),
+						'--tw-prose-hr': theme('colors.primary[300]'),
+						'--tw-prose-quotes': theme('colors.primary[900]'),
+						'--tw-prose-quote-borders': theme('colors.primary[300]'),
+						'--tw-prose-captions': theme('colors.primary[700]'),
+						'--tw-prose-code': theme('colors.primary[900]'),
+						'--tw-prose-pre-code': theme('colors.primary[100]'),
+						'--tw-prose-pre-bg': theme('colors.primary[900]'),
+						'--tw-prose-th-borders': theme('colors.primary[300]'),
+						'--tw-prose-td-borders': theme('colors.primary[200]'),
+
+						'--tw-prose-invert-body': theme('colors.primary[200]'),
+						'--tw-prose-invert-headings': theme('colors.primary[100]'),
+						'--tw-prose-invert-lead': theme('colors.primary[200]'),
+						'--tw-prose-invert-links': theme('colors.primary[100]'),
+						'--tw-prose-invert-bold': theme('colors.primary[100]'),
+						'--tw-prose-invert-counters': theme('colors.primary[300]'),
+						'--tw-prose-invert-bullets': theme('colors.primary[500]'),
+						'--tw-prose-invert-hr': theme('colors.primary[600]'),
+						'--tw-prose-invert-quotes': theme('colors.primary[100]'),
+						'--tw-prose-invert-quote-borders': theme('colors.primary[600]'),
+						'--tw-prose-invert-captions': theme('colors.primary[300]'),
+						'--tw-prose-invert-code': theme('colors.primary[100]'),
+						'--tw-prose-invert-pre-code': theme('colors.primary[200]'),
+						'--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
+						'--tw-prose-invert-th-borders': theme('colors.primary[500]'),
+						'--tw-prose-invert-td-borders': theme('colors.primary[600]')
+					}
+				}
+			})
 		}
 	},
 	plugins: [require('@tailwindcss/typography')]

@@ -22,6 +22,7 @@ export function userStore() {
 		pbClient.authStore.model ?? null,
 		(set) => {
 			unsubscribe = pbClient.authStore.onChange((token: string, model: Record | Admin | null) => {
+				console.log('Auth changed');
 				set(model);
 			});
 

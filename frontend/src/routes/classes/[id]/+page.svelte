@@ -24,9 +24,11 @@
 	{#await classPromise}
 		<p>...waiting</p>
 	{:then clas}
-		<h1 class="text-3xl font-bold mb-8 text-center text-primary-700">{clas.title}</h1>
+		<h1 class="text-center text-xl font-semibold tracking-tight text-primary-100 sm:text-3xl mb-8">
+			{clas.title}
+		</h1>
 
-		<p class="text-center text-3xl font-semibold text-primary-500">
+		<p class="text-center text-lg sm:text-xl font-semibold text-primary-300">
 			From
 			<time datetime={clas.startDate}
 				>{new Intl.DateTimeFormat('default', dateOptions).format(new Date(clas.startDate))}</time
@@ -41,9 +43,9 @@
 			class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
 		>
 			{#each clas.expand?.members ?? [] as member (member.id)}
-				<li class="rounded-2xl bg-primary-900 py-10 px-8 flex flex-col items-center">
+				<li class="rounded-2xl bg-white/5 py-6 px-4 flex flex-col items-center">
 					<div
-						class="h-48 w-48 rounded-full md:h-56 md:w-56 overflow-hidden flex items-center justify-center"
+						class="h-40 w-40 rounded-full md:h-48 md:w-48 overflow-hidden flex items-center justify-center"
 					>
 						{#if member.avatar.length > 0}
 							<img
@@ -53,17 +55,19 @@
 							/>
 						{:else}
 							<span
-								class="w-full h-full bg-primary-700 flex items-center justify-center text-primary-100 text-4xl font-bold"
+								class="w-full h-full bg-primary-900 flex items-center justify-center text-primary-100 text-4xl font-bold"
 								>{member.name.slice(0, 2)}</span
 							>
 						{/if}
 					</div>
-					<h3 class="mt-6 text-base font-semibold leading-7 tracking-tight text-white text-center">
+					<h3
+						class="mt-6 text-base font-semibold leading-7 tracking-tight text-primary-100 text-center"
+					>
 						{member.name}
 					</h3>
 					<ul class="mt-6 flex justify-center gap-x-6">
 						<li>
-							<a href="#" class="text-gray-400 hover:text-gray-300">
+							<a href="#" class="text-secondary-500 hover:text-secondary-300">
 								<span class="sr-only">Twitter</span>
 								<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
 									<path
@@ -73,7 +77,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#" class="text-gray-400 hover:text-gray-300">
+							<a href="#" class="text-secondary-500 hover:text-secondary-300">
 								<span class="sr-only">LinkedIn</span>
 								<svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
 									<path

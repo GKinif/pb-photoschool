@@ -11,7 +11,7 @@
 	}
 </script>
 
-<header class="bg-white">
+<header>
 	<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
 		<div class="flex lg:flex-1">
 			<a href="/" class="-m-1.5 p-1.5">
@@ -23,7 +23,7 @@
 			<button
 				type="button"
 				on:click={handleClick}
-				class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-primary-700"
+				class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-primary-100"
 			>
 				<span class="sr-only">Open main menu</span>
 				<svg
@@ -45,40 +45,47 @@
 		<div class="hidden lg:flex lg:gap-x-12">
 			<a
 				href="/classes"
-				class="text-sm font-semibold leading-6 text-primary-700"
-				class:active={$page.url.pathname === '/classes'}>Classes</a
+				class="text-sm font-semibold leading-6 text-primary-100 hover:text-secondary-500 hover:underline"
+				class:active={$page.url.pathname.startsWith('/classes')}
 			>
+				Classes
+			</a>
 			<a
 				href="/levels"
-				class="text-sm font-semibold leading-6 text-primary-700"
-				class:active={$page.url.pathname === '/levels'}>Levels</a
+				class="text-sm font-semibold leading-6 text-primary-100 hover:text-secondary-500 hover:underline"
+				class:active={$page.url.pathname.startsWith('/levels')}
 			>
+				Programs
+			</a>
 			<a
 				href="/about"
-				class="text-sm font-semibold leading-6 text-primary-700"
-				class:active={$page.url.pathname === '/about'}>About</a
+				class="text-sm font-semibold leading-6 text-primary-100 hover:text-secondary-500 hover:underline"
+				class:active={$page.url.pathname.startsWith('/about')}>About</a
 			>
 		</div>
 		<div class="hidden lg:flex lg:flex-1 lg:justify-end">
 			{#if $user}
-				<span class="text-sm font-semibold leading-6 text-primary-700 mr-4"
+				<span class="text-sm font-semibold leading-6 text-primary-100 mr-4"
 					>Hello {$user.username}</span
 				>
 				<button
 					href="#"
-					class="text-sm font-semibold leading-6 text-primary-700"
-					on:click={() => logoutUser()}>Log out</button
-				>
+					class="text-sm font-semibold leading-6 text-primary-100 hover:text-secondary-500 hover:underline"
+					on:click={() => logoutUser()}
+					>Log out
+				</button>
 			{:else}
 				<a
 					href="/login"
-					class:active={$page.url.pathname === '/login'}
-					class="text-sm font-semibold leading-6 text-primary-700 mr-4">Log in</a
+					class:active={$page.url.pathname.startsWith('/login')}
+					class="text-sm font-semibold leading-6 text-primary-100 hover:text-secondary-500 hover:underline mr-4"
+					>Log in</a
 				>
 				<a
 					href="/register"
-					class:active={$page.url.pathname === '/register'}
-					class="text-sm font-semibold leading-6 text-primary-700">Register</a
+					class:active={$page.url.pathname.startsWith('/register')}
+					class="text-sm font-semibold leading-6 text-primary-100 hover:text-secondary-500 hover:underline"
+					>Register</a
 				>
 			{/if}
 		</div>
@@ -90,7 +97,7 @@
 		<div class="fixed inset-0 z-10" />
 		<div
 			focus="true"
-			class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
+			class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-primary-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
 		>
 			<div class="flex items-center justify-between">
 				<a href="/" class="-m-1.5 p-1.5">
@@ -103,7 +110,7 @@
 				</a>
 				<button
 					type="button"
-					class="-m-2.5 rounded-md p-2.5 text-primary700"
+					class="-m-2.5 rounded-md p-2.5 text-primary-100"
 					on:click={handleClick}
 				>
 					<span class="sr-only">Close menu</span>
@@ -124,26 +131,43 @@
 					<div class="space-y-2 py-6">
 						<a
 							href="/classes"
-							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
-							>Classes</a
+							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-100 hover:bg-gray-700"
+							class:active={$page.url.pathname.startsWith('/classes')}>Classes</a
 						>
 						<a
 							href="/levels"
-							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
-							>Levels</a
+							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-100 hover:bg-gray-700"
+							class:active={$page.url.pathname.startsWith('/levels')}>Programs</a
 						>
 						<a
 							href="/about"
-							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
-							class:active={$page.url.pathname === '/about'}>About</a
+							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-100 hover:bg-gray-700"
+							class:active={$page.url.pathname.startsWith('/about')}>About</a
 						>
 					</div>
+
 					<div class="py-6">
-						<a
-							href="#"
-							class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primary-700 hover:bg-gray-50"
-							>Log in</a
-						>
+						{#if $user}
+							<button
+								href="#"
+								class="text-sm font-semibold leading-6 text-primary-100 hover:text-secondary-500 hover:underline"
+								on:click={() => logoutUser()}
+								>Log out
+							</button>
+						{:else}
+							<a
+								href="/login"
+								class:active={$page.url.pathname.startsWith('/login')}
+								class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primary-100 hover:bg-gray-700"
+								>Log in</a
+							>
+							<a
+								href="/register"
+								class:active={$page.url.pathname.startsWith('/register')}
+								class="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-primary-100 hover:bg-gray-700"
+								>Register</a
+							>
+						{/if}
 					</div>
 				</div>
 			</div>

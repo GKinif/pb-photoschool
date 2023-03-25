@@ -10,7 +10,7 @@
 </main>
 
 <footer class="container mx-auto py-8 px-6 lg:px-8">
-	<p class="text-center text-lg font-semibold text-primary-700">
+	<p class="text-center text-lg font-semibold text-primary-500">
 		Test portfolio with PocketBase and SvelteKit
 	</p>
 </footer>

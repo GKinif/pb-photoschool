@@ -19,11 +19,11 @@
 			alt=""
 			class="absolute inset-0 -z-10 h-full w-full object-cover"
 		/>
-		<div class="mx-auto max-w-2xl text-center">
-			<h1 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+		<div class="mx-auto max-w-2xl text-center bg-black/40 rounded px-6 py-4">
+			<h1 class="text-4xl font-bold tracking-tight text-primary-100 sm:text-6xl">
 				Photography School
 			</h1>
-			<p class="mt-6 text-lg leading-8 text-white">
+			<p class="mt-6 text-lg leading-8 text-primary-100">
 				Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
 				Elit sunt amet fugiat veniam occaecat fugiat aliqua.
 			</p>
@@ -31,8 +31,8 @@
 	</div>
 
 	<div class="mb-16">
-		<h2 class="text-3xl font-bold mb-8 text-center text-primary-700">What We Teach</h2>
-		<p class="text-center px-4 lg:px-24">
+		<h2 class="text-3xl font-bold mb-8 text-center text-primary-100">What We Teach</h2>
+		<p class="text-center px-4 lg:px-24 text-primary-200">
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
 			been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
 			galley of type and scrambled it to make a type specimen book. It has survived not only five
@@ -43,14 +43,14 @@
 		</p>
 	</div>
 
-	<div class="container mx-auto flex flex-col bg-primary-900 py-16 sm:py-24 px-8 rounded-lg mb-16">
+	<div class="container mx-auto flex flex-col bg-white/5 py-16 sm:py-24 px-8 rounded-lg mb-16">
 		<h2 class="text-3xl font-bold mb-8 text-center text-primary-100">
 			World-Class Photography Courses for every Budget
 		</h2>
-		<div class="flex flex-col sm:flex-row justify-center sm:divide-x-2 sm:divide-primary-100">
+		<div class="flex flex-col sm:flex-row justify-center sm:divide-x-2 sm:divide-secondary-500">
 			<div class="flex flex-col items-center flex-1 py-4 px-6">
 				<h3
-					class="rounded-full border-2 border-primary-100 h-12 w-12 flex items-center justify-center mb-4 text-lg font-semibold text-primary-100"
+					class="rounded-full border-2 border-secondary-500 h-12 w-12 flex items-center justify-center mb-4 text-lg font-semibold text-primary-100"
 				>
 					1
 				</h3>
@@ -58,7 +58,7 @@
 			</div>
 			<div class="flex flex-col items-center flex-1 py-4 px-6">
 				<h3
-					class="rounded-full border-2 border-primary-100 h-12 w-12 flex items-center justify-center mb-4 text-lg font-semibold text-primary-100"
+					class="rounded-full border-2 border-secondary-500 h-12 w-12 flex items-center justify-center mb-4 text-lg font-semibold text-primary-100"
 				>
 					2
 				</h3>
@@ -66,7 +66,7 @@
 			</div>
 			<div class="flex flex-col items-center flex-1 py-4 px-6">
 				<h3
-					class="rounded-full border-2 border-primary-100 h-12 w-12 flex items-center justify-center mb-4 text-lg font-semibold text-primary-100"
+					class="rounded-full border-2 border-secondary-500 h-12 w-12 flex items-center justify-center mb-4 text-lg font-semibold text-primary-100"
 				>
 					3
 				</h3>
@@ -77,31 +77,35 @@
 		</div>
 	</div>
 
-	<h2 class="text-3xl font-bold mb-8 text-center text-primary-700">Levels</h2>
+	<h2 class="text-3xl font-bold mb-8 text-center text-primary-100">Programs</h2>
 
-	<ul class="divide-y divide-gray-200">
+	<ul class="divide-y divide-secondary-700">
 		{#await levelsPromise}
 			<li class="flex py-8 px-12 animate-pulse">
-				<div class="w-96 h-60 bg-slate-200 rounded"></div>
+				<div class="w-96 h-60 bg-slate-200 rounded" />
 				<div class="py-4 px-8 flex-1 space-y-6">
-					<div class="h-4 bg-slate-200 rounded"></div>
+					<div class="h-4 bg-slate-200 rounded" />
 					<div class="space-y-3">
 						<div class="grid grid-cols-3 gap-4">
-							<div class="h-4 bg-slate-200 rounded col-span-2"></div>
-							<div class="h-4 bg-slate-200 rounded col-span-1"></div>
+							<div class="h-4 bg-slate-200 rounded col-span-2" />
+							<div class="h-4 bg-slate-200 rounded col-span-1" />
 						</div>
-						<div class="h-4 bg-slate-200 rounded"></div>
+						<div class="h-4 bg-slate-200 rounded" />
 						<div class="grid grid-cols-3 gap-4">
-							<div class="h-4 bg-slate-200 rounded col-span-2"></div>
-							<div class="h-4 bg-slate-200 rounded col-span-1"></div>
+							<div class="h-4 bg-slate-200 rounded col-span-2" />
+							<div class="h-4 bg-slate-200 rounded col-span-1" />
 						</div>
-						<div class="h-4 bg-slate-200 rounded"></div>
+						<div class="h-4 bg-slate-200 rounded" />
 					</div>
 				</div>
 			</li>
 		{:then levels}
 			{#each levels as level, index (level.id)}
-				<li class={`flex py-8 px-4 md:px-12 flex-col ${index % 2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+				<li
+					class={`flex py-8 px-4 md:px-12 flex-col ${
+						index % 2 == 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+					}`}
+				>
 					<div class="flex-1">
 						<img
 							class="rounded max-h-96"
@@ -111,8 +115,15 @@
 						/>
 					</div>
 					<div class="py-4 md:px-8 flex-1">
-						<h3 class="text-xl font-semibold leading-6 text-primary-700 mb-4">{level.title}</h3>
-						<p class="prose">{@html level.description}</p>
+						<h3 class="text-xl font-semibold leading-6 text-primary-100 mb-4">{level.title}</h3>
+						<div class="prose prose-primary !prose-invert">{@html level.shortdescription}</div>
+						<div class="flex justify-center mt-6">
+							<a
+								href={`/levels/${level.id}`}
+								class="text-center text-sm font-semibold text-secondary-500 border border-secondary-500 rounded px-4 py-2 transition duration-300 ease-in-out hover:scale-125"
+								>Explore</a
+							>
+						</div>
 					</div>
 				</li>
 			{/each}
@@ -127,7 +138,7 @@
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl lg:max-w-none">
 				<div class="text-center">
-					<h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+					<h2 class="text-3xl font-bold tracking-tight text-primary-100 sm:text-4xl">
 						Trusted by studends for more than 10 years
 					</h2>
 					<p class="mt-4 text-lg leading-8 text-primary-300">
@@ -139,24 +150,26 @@
 				>
 					<div class="flex flex-col bg-white/5 p-8">
 						<dt class="text-sm font-semibold leading-6 text-primary-300">Students</dt>
-						<dd class="order-first text-3xl font-semibold tracking-tight text-primary-100">200+</dd>
+						<dd class="order-first text-3xl font-semibold tracking-tight text-secondary-500">
+							200+
+						</dd>
 					</div>
 
 					<div class="flex flex-col bg-white/5 p-8">
 						<dt class="text-sm font-semibold leading-6 text-primary-300">School price</dt>
-						<dd class="order-first text-3xl font-semibold tracking-tight text-primary-100">
+						<dd class="order-first text-3xl font-semibold tracking-tight text-secondary-500">
 							Starting at 400€
 						</dd>
 					</div>
 
 					<div class="flex flex-col bg-white/5 p-8">
 						<dt class="text-sm font-semibold leading-6 text-primary-300">Programs</dt>
-						<dd class="order-first text-3xl font-semibold tracking-tight text-primary-100">4</dd>
+						<dd class="order-first text-3xl font-semibold tracking-tight text-secondary-500">4</dd>
 					</div>
 
 					<div class="flex flex-col bg-white/5 p-8">
 						<dt class="text-sm font-semibold leading-6 text-primary-300">Exhibitions</dt>
-						<dd class="order-first text-3xl font-semibold tracking-tight text-primary-100">
+						<dd class="order-first text-3xl font-semibold tracking-tight text-secondary-500">
 							2 / Years
 						</dd>
 					</div>
