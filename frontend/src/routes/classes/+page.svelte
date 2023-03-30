@@ -1,6 +1,7 @@
 <script>
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 	import { listRecords } from '../../services/records';
+	import Heading from "../../lib/components/Heading.svelte";
 
 	let dateOptions = {
 		weekday: 'long',
@@ -23,9 +24,7 @@
 </svelte:head>
 
 <section>
-	<h1 class="text-center text-xl font-semibold tracking-tight text-primary-100 sm:text-3xl mb-8">
-		Classes
-	</h1>
+	<Heading className="text-center mb-8">Classes</Heading>
 
 	{#await classesPromise}
 		<p>...waiting</p>
@@ -40,9 +39,9 @@
 									<div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
 										<div class="truncate">
 											<div class="flex text-sm flex-wrap md:flex-nowrap">
-												<p class="truncate font-medium text-primary-100 mr-2">{clas.title}</p>
+												<Heading tag="h2" variant="h3" className="truncate mr-2">{clas.title}</Heading>
 												<p
-													class="ml-1 flex-shrink-0 font-small text-secondary-500 border border-secondary-500 px-2 rounded"
+													class="ml-1 flex-shrink-0 flex items-center justify-center font-small text-secondary-500 border border-secondary-500 px-2 rounded"
 												>
 													{clas.expand?.level?.title}
 												</p>

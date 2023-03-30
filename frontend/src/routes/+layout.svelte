@@ -1,11 +1,11 @@
 <script>
-	import Header from '$lib/header/Header.svelte';
+	import Header from '$lib/components/header/Header.svelte';
 	import './styles.css';
 </script>
 
 <Header />
 
-<main class="container mx-auto mb-10 px-6 lg:px-8">
+<main class="container mx-auto mb-10 mt-8 px-6 lg:px-8">
 	<slot />
 </main>
 

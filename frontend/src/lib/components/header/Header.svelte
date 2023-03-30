@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { userStore } from '../../stores/user';
-	import { logoutUser } from '../../services/authentication';
+	import { userStore } from '../../../stores/user';
+	import { logoutUser } from '../../../services/authentication';
 
 	const user = userStore();
 	let isMenuOpen = false;
@@ -51,9 +51,9 @@
 				Classes
 			</a>
 			<a
-				href="/levels"
+				href="/programs"
 				class="text-sm font-semibold leading-6 text-primary-100 hover:text-secondary-500 hover:underline"
-				class:active={$page.url.pathname.startsWith('/levels')}
+				class:active={$page.url.pathname.startsWith('/programs')}
 			>
 				Programs
 			</a>
@@ -135,9 +135,9 @@
 							class:active={$page.url.pathname.startsWith('/classes')}>Classes</a
 						>
 						<a
-							href="/levels"
+							href="/programs"
 							class="-mx-3 block rounded-lg py-2 px-3 text-base font-semibold leading-7 text-primary-100 hover:bg-gray-700"
-							class:active={$page.url.pathname.startsWith('/levels')}>Programs</a
+							class:active={$page.url.pathname.startsWith('/programs')}>Programs</a
 						>
 						<a
 							href="/about"

@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 	import { getRecord } from '../../../services/records';
+	import Heading from "../../../lib/components/Heading.svelte";
 
 	let dateOptions = {
 		weekday: 'long',
@@ -24,9 +25,7 @@
 	{#await classPromise}
 		<p>...waiting</p>
 	{:then clas}
-		<h1 class="text-center text-xl font-semibold tracking-tight text-primary-100 sm:text-3xl mb-8">
-			{clas.title}
-		</h1>
+		<Heading className="text-center mb-8">{clas.title}</Heading>
 
 		<p class="text-center text-lg sm:text-xl font-semibold text-primary-300">
 			From
@@ -60,11 +59,7 @@
 							>
 						{/if}
 					</div>
-					<h3
-						class="mt-6 text-base font-semibold leading-7 tracking-tight text-primary-100 text-center"
-					>
-						{member.name}
-					</h3>
+					<Heading tag="h2" variant="h4" className="text-center mt-6">{member.name}</Heading>
 					<ul class="mt-6 flex justify-center gap-x-6">
 						<li>
 							<a href="#" class="text-secondary-500 hover:text-secondary-300">

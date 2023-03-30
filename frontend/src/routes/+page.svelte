@@ -1,6 +1,8 @@
 <script>
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 	import { listLevels } from '../services/levels';
+	import ButtonLink from '../lib/components/ButtonLink.svelte';
+	import Heading from '../lib/components/Heading.svelte';
 
 	let levelsPromise = listLevels();
 </script>
@@ -20,9 +22,7 @@
 			class="absolute inset-0 -z-10 h-full w-full object-cover"
 		/>
 		<div class="mx-auto max-w-2xl text-center bg-black/40 rounded px-6 py-4">
-			<h1 class="text-4xl font-bold tracking-tight text-primary-100 sm:text-6xl">
-				Photography School
-			</h1>
+			<Heading className="text-center mb-8">Photography School</Heading>
 			<p class="mt-6 text-lg leading-8 text-primary-100">
 				Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.
 				Elit sunt amet fugiat veniam occaecat fugiat aliqua.
@@ -31,7 +31,7 @@
 	</div>
 
 	<div class="mb-16">
-		<h2 class="text-3xl font-bold mb-8 text-center text-primary-100">What We Teach</h2>
+		<Heading variant="h2" className="text-center mb-8">What We Teach</Heading>
 		<p class="text-center px-4 lg:px-24 text-primary-200">
 			Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
 			been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
@@ -44,9 +44,9 @@
 	</div>
 
 	<div class="container mx-auto flex flex-col bg-white/5 py-16 sm:py-24 px-8 rounded-lg mb-16">
-		<h2 class="text-3xl font-bold mb-8 text-center text-primary-100">
-			World-Class Photography Courses for every Budget
-		</h2>
+		<Heading variant="h2" className="text-center mb-8"
+			>World-Class Photography Courses for every Budget</Heading
+		>
 		<div class="flex flex-col sm:flex-row justify-center sm:divide-x-2 sm:divide-secondary-500">
 			<div class="flex flex-col items-center flex-1 py-4 px-6">
 				<h3
@@ -77,7 +77,7 @@
 		</div>
 	</div>
 
-	<h2 class="text-3xl font-bold mb-8 text-center text-primary-100">Programs</h2>
+	<Heading variant="h2" className="text-center">Programs</Heading>
 
 	<ul class="divide-y divide-secondary-700">
 		{#await levelsPromise}
@@ -115,14 +115,10 @@
 						/>
 					</div>
 					<div class="py-4 md:px-8 flex-1">
-						<h3 class="text-xl font-semibold leading-6 text-primary-100 mb-4">{level.title}</h3>
+						<Heading variant="h3" className="mb-4">{level.title}</Heading>
 						<div class="prose prose-primary !prose-invert">{@html level.shortdescription}</div>
 						<div class="flex justify-center mt-6">
-							<a
-								href={`/levels/${level.id}`}
-								class="text-center text-sm font-semibold text-secondary-500 border border-secondary-500 rounded px-4 py-2 transition duration-300 ease-in-out hover:scale-125"
-								>Explore</a
-							>
+							<ButtonLink href={`/programs/${level.id}`}>Explore</ButtonLink>
 						</div>
 					</div>
 				</li>
@@ -138,9 +134,7 @@
 		<div class="mx-auto max-w-7xl px-6 lg:px-8">
 			<div class="mx-auto max-w-2xl lg:max-w-none">
 				<div class="text-center">
-					<h2 class="text-3xl font-bold tracking-tight text-primary-100 sm:text-4xl">
-						Trusted by studends for more than 10 years
-					</h2>
+					<Heading variant="h2">Trusted by students for more than 10 years</Heading>
 					<p class="mt-4 text-lg leading-8 text-primary-300">
 						Lorem ipsum dolor sit amet consect adipisicing possimus.
 					</p>
