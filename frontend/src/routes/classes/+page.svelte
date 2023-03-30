@@ -1,7 +1,7 @@
 <script>
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 	import { listRecords } from '../../services/records';
-	import Heading from "../../lib/components/Heading.svelte";
+	import Heading from '$lib/components/Heading.svelte';
 
 	let dateOptions = {
 		weekday: 'long',
@@ -39,7 +39,9 @@
 									<div class="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
 										<div class="truncate">
 											<div class="flex text-sm flex-wrap md:flex-nowrap">
-												<Heading tag="h2" variant="h3" className="truncate mr-2">{clas.title}</Heading>
+												<Heading tag="h2" variant="h3" className="truncate mr-2"
+													>{clas.title}</Heading
+												>
 												<p
 													class="ml-1 flex-shrink-0 flex items-center justify-center font-small text-secondary-500 border border-secondary-500 px-2 rounded"
 												>

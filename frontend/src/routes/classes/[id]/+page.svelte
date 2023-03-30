@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 	import { getRecord } from '../../../services/records';
-	import Heading from "../../../lib/components/Heading.svelte";
+	import Heading from '$lib/components/Heading.svelte';
 
 	let dateOptions = {
 		weekday: 'long',
