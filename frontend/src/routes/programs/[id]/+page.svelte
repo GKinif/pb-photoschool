@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/stores';
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
-	import { getRecord } from '../../../services/records';
+	import { getRecord } from '$lib/services/records';
 	import Heading from '$lib/components/Heading.svelte';
 
 	let levelPromise = getRecord('levels', $page.params.id, {

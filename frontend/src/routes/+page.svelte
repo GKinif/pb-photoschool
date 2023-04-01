@@ -1,6 +1,6 @@
 <script>
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
-	import { listLevels } from '../services/levels';
+	import { listLevels } from '$lib/services/levels';
 	import ButtonLink from '$lib/components/ButtonLink.svelte';
 	import Heading from '$lib/components/Heading.svelte';
 

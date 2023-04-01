@@ -1,5 +1,5 @@
 <script>
-	import { listRecords } from '../../services/records';
+	import { listRecords } from '$lib/services/records';
 
 	let subjectsPromise = listRecords('subjects');
 </script>

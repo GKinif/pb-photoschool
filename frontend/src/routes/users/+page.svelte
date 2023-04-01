@@ -1,5 +1,5 @@
 <script>
-	import { listUsers } from '../../services/users';
+	import { listUsers } from '$lib/services/users';
 
 	let usersPromise = listUsers();
 </script>

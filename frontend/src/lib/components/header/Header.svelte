@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { userStore } from '../../../stores/user';
-	import { logoutUser } from '../../../services/authentication';
+	import { logoutUser } from '../../services/authentication';
 
 	const user = userStore();
 	let isMenuOpen = false;

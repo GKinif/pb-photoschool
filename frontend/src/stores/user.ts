@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { pbClient } from '../services/pbClient';
+import { pbClient } from '../lib/services/pbClient';
 import type { Record, Admin } from 'pocketbase';
 
 interface User {

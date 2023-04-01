@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import produce from 'immer';
-import { pbClient } from '../services/pbClient';
+import { pbClient } from '../lib/services/pbClient';
 
 const collectionStore = writable({});
 
