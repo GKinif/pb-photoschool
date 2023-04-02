@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	const user = userStore();
 	import { createForm, FelteSubmitError } from 'felte';
 	import { ClientResponseError } from 'pocketbase';
 	import { validator } from '@felte/validator-yup';
@@ -7,6 +9,15 @@
 	import { authenticateUserByEmail } from '$lib/services/authentication';
 	import Heading from '$lib/components/Heading.svelte';
 	import TextInput from '$lib/components/form/TextInput.svelte';
+	import {userStore} from "../../stores/user";
+
+	let isRegisterSuccess = $page.url.searchParams.get('register') === 'success';
+
+	$: {
+		if ($user) {
+			goto('/', { replaceState: true });
+		}
+	}
 
 	let isLoading = false;
 
@@ -52,6 +63,12 @@
 
 <section>
 	<Heading className="text-center mb-10">Sign in</Heading>
+
+	{#if isRegisterSuccess}
+		<p class="p-4 mb-6 rounded bg-success-700 text-center text-primary-100 font-semibold max-w-md mx-auto">
+			Successfully register, you can now login with your account
+		</p>
+	{/if}
 
 	<div class="flex flex-col items-center">
 		<div class="bg-primary-800/40 rounded-lg p-8 sm:mx-auto w-full sm:max-w-md">

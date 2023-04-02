@@ -25,8 +25,7 @@
 		},
 		onSuccess: async (response) => {
 			isLoading = false;
-			// @TODO: Add notification and ask user to authenticate
-			await goto('/login');
+			await goto('/login?register=success');
 		},
 		onError: (error) => {
 			isLoading = false;
