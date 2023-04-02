@@ -5,16 +5,10 @@
 	export let placeholder = ' ';
 	export let type = 'text';
 	export let error: string;
+	export let className = '';
 </script>
 
-<!--"
-absolute
-peer-focus:font-medium text-sm text-secondary-500 dark:text-secondary-400
-duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
-peer-focus:left-0 peer-focus:text-secondary-400 peer-focus:dark:text-secondary-500
-peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"-->
-
-<div class="relative z-0 mb-6 w-full group">
+<div class={`relative z-0 w-full group${className.length > 0 ? ' ' + className : ''}`}>
 	<input
 		{type}
 		{name}
@@ -34,9 +28,11 @@ peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus
 			text-sm text-primary-300
 			peer-focus:font-medium
 			duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
-			${placeholder.length > 0 && placeholder !== ' '
-			? 'left-0 text-secondary-500 scale-75 -translate-y-6'
-			: 'peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0'}
+			${
+				placeholder.length > 0 && placeholder !== ' '
+					? 'left-0 text-secondary-500 scale-75 -translate-y-6'
+					: 'peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0'
+			}
 			peer-focus:left-0 peer-focus:text-secondary-500 peer-focus:scale-75 peer-focus:-translate-y-6
 		`}
 	>

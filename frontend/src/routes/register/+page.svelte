@@ -4,27 +4,29 @@
 	import { validator } from '@felte/validator-yup';
 	import * as yup from 'yup';
 	import { goto } from '$app/navigation';
-	import { authenticateUserByEmail } from '$lib/services/authentication';
+	import { createUser } from '$lib/services/authentication';
 	import Heading from '$lib/components/Heading.svelte';
 	import TextInput from '$lib/components/form/TextInput.svelte';
 
 	let isLoading = false;
 
 	const schema = yup.object({
+		username: yup.string().required().min(3),
 		email: yup.string().email().required(),
-		password: yup.string().required().min(8)
+		password: yup.string().required().min(8),
+		passwordConfirm: yup.string().required().min(8)
 	});
 
 	const { form, errors, isValid, isSubmitting } = createForm({
 		extend: validator({ schema }),
 		onSubmit: async (values) => {
 			isLoading = true;
-			return authenticateUserByEmail(values.email, values.password);
+			return createUser(values.username, values.email, values.password, values.passwordConfirm);
 		},
 		onSuccess: async (response) => {
 			isLoading = false;
-			// @TODO: redirect to profile page
-			await goto('/');
+			// @TODO: Add notification and ask user to authenticate
+			await goto('/login');
 		},
 		onError: (error) => {
 			isLoading = false;
@@ -57,6 +59,13 @@
 		<div class="bg-primary-800/40 rounded-lg p-8 sm:mx-auto w-full sm:max-w-md">
 			<form use:form>
 				<TextInput
+					name="username"
+					label="Username"
+					id="username"
+					className="mb-6"
+					error={$errors.username}
+				/>
+				<TextInput
 					name="email"
 					label="Email"
 					id="email"
@@ -73,10 +82,14 @@
 					className="mb-6"
 					error={$errors.password}
 				/>
-
-				{#if $errors.apiError}
-					<div class="text-center text-error-500 mb-6">{$errors.apiError}</div>
-				{/if}
+				<TextInput
+					name="passwordConfirm"
+					label="Password Confirm"
+					id="passwordConfirm"
+					type="password"
+					className="mb-6"
+					error={$errors.passwordConfirm}
+				/>
 
 				<button
 					type="submit"
@@ -99,8 +112,8 @@
 			</form>
 
 			<div class="text-center mt-6">
-				<span class="text-primary-100 mr-2">You don't have an account yet?</span>
-				<a href="/register" class="text-secondary-500 font-semibold hover:underline">Register</a>
+				<span class="text-primary-100 mr-2">Already have an account?</span>
+				<a href="/login" class="text-secondary-500 font-semibold hover:underline">Login</a>
 			</div>
 		</div>
 	</div>

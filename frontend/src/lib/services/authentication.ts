@@ -1,5 +1,19 @@
 import { pbClient } from './pbClient';
 
+export async function createUser(
+	username: string,
+	email: string,
+	password: string,
+	passwordConfirm: string
+) {
+	return pbClient.collection('users').create({
+		username,
+		email,
+		password,
+		passwordConfirm
+	});
+}
+
 export async function authenticateUserByEmail(email: string, password: string) {
 	return pbClient.collection('users').authWithPassword(email, password);
 }
