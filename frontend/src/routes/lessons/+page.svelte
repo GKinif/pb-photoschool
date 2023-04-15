@@ -1,7 +1,7 @@
-<script>
-	import { listRecords } from '$lib/services/records';
+<script lang="ts">
+	import { listRecords, type Subject } from '$lib/services/records';
 
-	let subjectsPromise = listRecords('subjects');
+	let subjectsPromise = listRecords<Subject>('subjects');
 </script>
 
 <svelte:head>
@@ -16,7 +16,7 @@
 		<p>...waiting</p>
 	{:then subjects}
 		<ul class="divide-y divide-gray-200">
-			{#each subjects as subject, index (subject.id)}
+			{#each subjects.items as subject, index (subject.id)}
 				<li class={`flex py-8 px-12 ${index % 2 == 0 ? '' : 'flex-row-reverse'}`}>
 					<img src="https://via.placeholder.com/400x300" />
 					<div class="py-4 px-8 flex-1">

@@ -77,7 +77,7 @@
 		</div>
 	</div>
 
-	<Heading variant="h2" className="text-center">Programs</Heading>
+	<Heading variant="h2" className="text-center mb-4">Programs</Heading>
 
 	<ul class="divide-y divide-secondary-700">
 		{#await levelsPromise}

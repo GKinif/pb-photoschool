@@ -1,9 +1,10 @@
-<script>
+<script lang="ts">
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 	import { listRecords } from '$lib/services/records';
+	import type  { Clas } from '$lib/services/records';
 	import Heading from '$lib/components/Heading.svelte';
 
-	let dateOptions = {
+	let dateOptions: Intl.DateTimeFormatOptions = {
 		weekday: 'long',
 		year: 'numeric',
 		month: 'long',
@@ -12,7 +13,7 @@
 
 	const currentDate = new Date();
 
-	let classesPromise = listRecords('classes', 1, 100, {
+	let classesPromise = listRecords<Clas>('classes', 1, 100, {
 		expand: 'members,level',
 		filter: `startDate <= "${currentDate.toISOString()}" && endDate >= "${currentDate.toISOString()}"`
 	});
@@ -31,7 +32,7 @@
 	{:then classes}
 		<div class="overflow-hidden bg-white/5 sm:rounded-md">
 			<ul class="divide-y divide-secondary-700">
-				{#each classes as clas (clas.id)}
+				{#each classes.items as clas (clas.id)}
 					<li>
 						<div>
 							<a href={`/classes/${clas.id}`} class="block hover:bg-primary-800">
