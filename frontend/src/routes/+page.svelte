@@ -3,6 +3,7 @@
 	import { listLevels } from '$lib/services/levels';
 	import ButtonLink from '$lib/components/ButtonLink.svelte';
 	import Heading from '$lib/components/Heading.svelte';
+	import { sanitizeHtml } from '$lib/utils/sanitize.ts';
 
 	let levelsPromise = listLevels();
 </script>
@@ -116,7 +117,9 @@
 					</div>
 					<div class="py-4 md:px-8 flex-1">
 						<Heading variant="h3" className="mb-4">{level.title}</Heading>
-						<div class="prose prose-primary !prose-invert">{@html level.shortdescription}</div>
+						<div class="prose prose-primary !prose-invert">
+							{@html sanitizeHtml(level.shortdescription)}
+						</div>
 						<div class="flex justify-center mt-6">
 							<ButtonLink href={`/programs/${level.id}`}>Explore</ButtonLink>
 						</div>

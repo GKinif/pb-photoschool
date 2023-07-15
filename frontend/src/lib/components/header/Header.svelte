@@ -2,6 +2,8 @@
 	import { page } from '$app/stores';
 	import { userStore } from '../../../stores/user';
 	import { logoutUser } from '../../services/authentication';
+	import ProfileIcon from '../icons/ProfileIcon.svelte';
+	import Dropdown from '$lib/components/Dropdown.svelte';
 
 	const user = userStore();
 	let isMenuOpen = false;
@@ -65,14 +67,29 @@
 		</div>
 		<div class="hidden lg:flex lg:flex-1 lg:justify-end">
 			{#if $user}
-				<span class="text-sm font-semibold leading-6 text-primary-100 mr-4"
-					>Hello {$user.username}</span
-				>
+				<div>
+					<Dropdown className="mr-4">
+						<svelte:fragment slot="ctaContent">
+							<span class="inline-block h-6 w-6 overflow-hidden rounded-full bg-gray-100">
+								<ProfileIcon />
+							</span>
+							<span class="text-sm font-semibold leading-6 text-primary-100 mr-1">
+								{$user.username}
+							</span>
+						</svelte:fragment>
+						<svelte:fragment slot="items" let:toggleMenu>
+							<a href="/profile" class="block p-2 hover:text-secondary-500" on:click={toggleMenu}
+								>Profile</a
+							>
+						</svelte:fragment>
+					</Dropdown>
+				</div>
+
 				<button
-					href="#"
 					class="text-sm font-semibold leading-6 text-primary-100 hover:text-secondary-500 hover:underline"
 					on:click={() => logoutUser()}
-					>Log out
+				>
+					Log out
 				</button>
 			{:else}
 				<a

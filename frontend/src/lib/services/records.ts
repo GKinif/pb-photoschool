@@ -26,7 +26,11 @@ interface RecordQueryParams {
 	expand?: string;
 }
 
-export async function getRecord<T = Record>(collection: string, recordId: string, options: RecordQueryParams): Promise<T> {
+export async function getRecord<T = Record>(
+	collection: string,
+	recordId: string,
+	options: RecordQueryParams
+): Promise<T> {
 	const record = await pbClient.collection(collection).getOne(recordId, options);
 
 	if (record?.id) {
@@ -40,15 +44,15 @@ export interface Level extends Record {
 	title: string;
 	description: string;
 	shortDescription: string;
-	cover?:string;
+	cover?: string;
 }
 
 export interface Subject extends Record {
 	title: string;
 	description: string;
 	expand: {
-        level?: Level;
-    };
+		level?: Level;
+	};
 }
 
 export interface Clas extends Record {
@@ -56,7 +60,7 @@ export interface Clas extends Record {
 	startDate: string;
 	endDate: string;
 	expand: {
-        level?: Level;
+		level?: Level;
 		members?: Array<Record>;
-    };
+	};
 }

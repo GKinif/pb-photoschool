@@ -13,9 +13,6 @@
 	}
 </script>
 
-<svelte:element
-	bind:this={data}
-	this={tag}
-	class={className}>
+<svelte:element this={tag} bind:this={data} class={className}>
 	{@html sanitized}
 </svelte:element>

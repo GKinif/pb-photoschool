@@ -3,15 +3,15 @@
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 	import { getRecord, type Level, type Subject } from '$lib/services/records';
 	import Heading from '$lib/components/Heading.svelte';
-	import { sanitizeHtml } from '$lib/utils/sanitize';
+	import { sanitizeHtml } from '$lib/utils/sanitize.ts';
 
 	let levelPromise = getRecord<Level>('levels', $page.params.id, {
 		expand: 'subjects(level)'
 	});
 
 	const getSubjectsForLevel = (level: Level): Subject[] => {
-		return level.expand?.['subjects(level)'] as Subject[] ?? [];
-	}
+		return (level.expand?.['subjects(level)'] as Subject[]) ?? [];
+	};
 </script>
 
 <svelte:head>

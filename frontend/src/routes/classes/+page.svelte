@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 	import { listRecords } from '$lib/services/records';
-	import type  { Clas } from '$lib/services/records';
+	import type { Clas } from '$lib/services/records';
 	import Heading from '$lib/components/Heading.svelte';
 
 	let dateOptions: Intl.DateTimeFormatOptions = {

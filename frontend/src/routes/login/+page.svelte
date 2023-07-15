@@ -9,7 +9,7 @@
 	import { authenticateUserByEmail } from '$lib/services/authentication';
 	import Heading from '$lib/components/Heading.svelte';
 	import TextInput from '$lib/components/form/TextInput.svelte';
-	import {userStore} from "../../stores/user";
+	import { userStore } from '../../stores/user';
 
 	let isRegisterSuccess = $page.url.searchParams.get('register') === 'success';
 
@@ -34,8 +34,7 @@
 		},
 		onSuccess: async (response) => {
 			isLoading = false;
-			// @TODO: redirect to profile page
-			await goto('/');
+			await goto('/profile');
 		},
 		onError: (error) => {
 			isLoading = false;
@@ -65,7 +64,9 @@
 	<Heading className="text-center mb-10">Sign in</Heading>
 
 	{#if isRegisterSuccess}
-		<p class="p-4 mb-6 rounded bg-success-700 text-center text-primary-100 font-semibold max-w-md mx-auto">
+		<p
+			class="p-4 mb-6 rounded bg-success-700 text-center text-primary-100 font-semibold max-w-md mx-auto"
+		>
 			Successfully register, you can now login with your account
 		</p>
 	{/if}

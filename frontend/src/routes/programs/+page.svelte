@@ -2,6 +2,7 @@
 	import { PUBLIC_PB_BASE_URL } from '$env/static/public';
 	import { listLevels } from '$lib/services/levels';
 	import Heading from '$lib/components/Heading.svelte';
+	import { sanitizeHtml } from '$lib/utils/sanitize';
 
 	let levelsPromise = listLevels();
 </script>
@@ -51,7 +52,9 @@
 					</div>
 					<div class="py-4 md:px-8 flex-1">
 						<Heading variant="h3" tag="h2" className="mb-4">{level.title}</Heading>
-						<div class="prose prose-primary !prose-invert">{@html level.shortdescription}</div>
+						<div class="prose prose-primary !prose-invert">
+							{@html sanitizeHtml(level.shortdescription)}
+						</div>
 						<div class="flex justify-center mt-6">
 							<a
 								href={`/programs/${level.id}`}
